@@ -1,0 +1,45 @@
+import streamlit as st
+
+# 🎀 CONFIGURAÇÃO GERAL
+st.set_page_config(page_title="Bem-Estar Feminino 💖", page_icon="💆‍♀️", layout="centered")
+
+# 🌸 TÍTULO E DESCRIÇÃO
+st.title("💖 Aplicativo de Bem-Estar Feminino")
+st.write("Cuidar de si é o primeiro passo para o equilíbrio! 🌿✨")
+
+# 💅 MENU LATERAL
+menu = st.sidebar.radio("Navegação", ["Início", "Produtos", "Contato"])
+
+# 🏠 PÁGINA INICIAL
+if menu == "Início":
+    st.image("https://cdn.pixabay.com/photo/2016/11/29/01/12/woman-1869721_1280.jpg", use_container_width=True)
+    st.subheader("Bem-vinda ao seu espaço de autocuidado 🌺")
+    st.write("Aqui você encontra produtos e dicas para dormir melhor, manter o corpo e mente leves e equilibrados!")
+
+# 🛍️ PRODUTOS
+elif menu == "Produtos":
+    st.header("Nossos Produtos 🌸")
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.image("https://cdn.pixabay.com/photo/2021/03/03/04/34/melatonin-6066571_1280.jpg", caption="Melatonina - Sono Tranquilo 😴", use_container_width=True)
+        st.write("Ajuda a regular o sono e melhorar a qualidade do descanso. 💊")
+        st.button("Adicionar ao carrinho 🛒", key="melatonina")
+
+    with col2:
+        st.image("https://cdn.pixabay.com/photo/2016/08/01/21/02/pills-1561987_1280.jpg", caption="Fórmula 30 Dias - Emagreça com Saúde 💃", use_container_width=True)
+        st.write("Suplemento natural que auxilia no emagrecimento em até 30 dias!")
+        st.button("Adicionar ao carrinho 🛍️", key="emagrecer")
+
+# 📞 CONTATO
+elif menu == "Contato":
+    st.header("Fale Conosco 💌")
+    nome = st.text_input("Seu nome:")
+    email = st.text_input("Seu e-mail:")
+    mensagem = st.text_area("Sua mensagem:")
+    if st.button("Enviar mensagem"):
+        st.success("Mensagem enviada com sucesso! 💖")
+
+st.markdown("---")
+st.caption("Desenvolvido por Ezequias ✨")
